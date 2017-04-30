@@ -1,0 +1,33 @@
+﻿El Sistema de jerarquia de MonoGame es la Siguiente:
+La Clase principal/main se llama Program.cs en el que asigna la comunicacion 
+crea una instancia nueva de Game1 que una clase que hereda de Game que es una interfaz y 
+es donde esta el centro del programa
+que se compone de los siguientes metodos que podemos gestionar nosotros como programadores.
+Initialize(),LoadContent(),UnloadContent(),Update(GameTime gameTime) y Draw(GameTime gameTime)
+que al mismo tiempo contiene cosas interesantes como el PipeLine llamado Content, que es un gestor 
+de recursos Multimedia (Sprites,Fondos,Fuentes,Efectos de postprocesado(Shaders)), 
+la instancia GraphicsDevice que es una instancia de la clase del mismo nombre, que la interfaz 
+ligada a la grafica (permite reiniciar la grafica, dibujar pixeles primitivos) en el cual 
+tambien permite gestionarse con la clase GraphicsDeviceManager haciendo una instancia de esta 
+y pasando por parametro el GraphicsManager instanciado de la clase Game por defecto.
+
+Para realizar programacion Orientada a Objetos sobre elementos que influyen sobre el render,
+por ejemplo, tenemos una clase llamada "Jugador" que hereda de la clase "Personaje" y 
+que incluye elementos que hace falta renderizar (por ejemplo, en este caso dibujamos al jugador 
+y las acciones de los personajes)
+tenemos que heredar obligatoriamente de la clase (Microsoft.Xna.Framework.)DrawableGameComponent()
+y en este caso preferiblemente a la clase Personaje.
+En el que hay que pasar obligatoriamente la estancia "Game" que estemos usando.
+
+El Sistema de representacion de pixeles no es como en LibGDX que cuando nos referimos al 
+punto X=0 y Y=0, en LibGDX es inferior izquierda del ventana, las posiciones en Monogame son
+superior Izquierda, 
+para solucionar este problema de posicion inicial he usado el siguiente algoritmo:
+(GraphicsDevice.Viewport.Height / 2)+100, basicamente es la altura de la pantalla dividido 
+entre 2 y + 100, 
+y Este problema tambien ocurre a la hora de moverse verticalmente el personaje,
+que por ejemplo, si quisieras hacer un salto (un movimiento hacia arriba y con gravedad), 
+tienes que estar pensando que no esta trabajando sobre un punto 0 y subes 10 de Y y bajas hasta 0
+en el caso que quieras trabajar dinamicamente por ejemplo, si trabajamos sobre 
+la resolucion 1280x720 la posicion base inferior izquierdo seria X= 0 Y= 460
+

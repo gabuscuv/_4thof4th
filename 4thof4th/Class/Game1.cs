@@ -9,12 +9,24 @@ namespace _4thof4th
     /// </summary>
     public class Game1 : Game
     {
+        bool debug = true;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        Player player;
+        private SpriteFont font;
+
+
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this)
+            {
+                // Resolucion por Defecto
+                
+                PreferredBackBufferWidth = 1280,
+                PreferredBackBufferHeight = 720
+                //PreferredBackBufferWidth = 1920,
+                //PreferredBackBufferHeight = 1080
+            };
             Content.RootDirectory = "Content";
         }
 
@@ -27,8 +39,9 @@ namespace _4thof4th
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
             base.Initialize();
+            player = new Player("sprite",this);
+            font = Content.Load<SpriteFont>("debug");
         }
 
         /// <summary>
@@ -59,8 +72,19 @@ namespace _4thof4th
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            player.Update(debug);
+
+            
+         /// Global Input
+            if (Keyboard.GetState().IsKeyDown(Keys.D)) {
+                if (debug)debug = false;else debug = true;
+            }
+          // Cerrar el Juego
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed 
+                || Keyboard.GetState().IsKeyDown(Keys.Escape))Exit();
+          // Pantalla Completa
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftAlt) 
+                && Keyboard.GetState().IsKeyDown(Keys.Enter)) graphics.ToggleFullScreen();
 
             // TODO: Add your update logic here
 
@@ -74,9 +98,17 @@ namespace _4thof4th
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.Begin();
+            player.Draw(spriteBatch);
+            if(debug){
+                spriteBatch.DrawString(font,
+                "X: "+player.getX()+
+                "\nY: "+player.getY()+
+                "\nWidth: "+GraphicsDevice.Viewport.Width+
+                "\nHeight:"+GraphicsDevice.Viewport.Height, new Vector2(50,50),Color.Black);
+            }
             // TODO: Add your drawing code here
-
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

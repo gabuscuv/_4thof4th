@@ -1,0 +1,29 @@
+Esquemas de Clases:
+Classes\
+		Game1.cs 		- {Game Herence} 				- El Controlador Principal del Juego
+														  \ GraphicsDeviceManager
+														  \ SpriteBatch
+														  \ Inputs basicos y globales como Quit or debugmode
+		
+		menu.cs 		- {Elemento dibujable}  		- Dibuja el Menu Prinicipal en Pantalla
+		character.cs	- {Clase Abstacte Dibujable}	- 
+														  \ posbase
+														  \ Sprite
+														  \ SpriteEffects														  
+														  \!Detector de Colisiones
+		
+		Player.cs		- {Clase heredada de character}	- Herencia de character con elementos Input
+		NEIO.cs			- {IO Engine made myself}		- WIP,No-Ethical Input and Output
+		NAE.cs			- {Audio Engine made myself} 	- WIP,NeoRetro Audio Engine
+		scene.cs		- {}							- WIP,Plantilla de escenarios y Cargador
+		
+Assets\
+		MFX (HLSL and GLSL Converted)\
+								
+		Sprites	\
+				 Player.png (256x256)
+				 Boss.png (???)
+		Fonts	\
+				 Debug
+		
+Tecnologias Utilizadas
