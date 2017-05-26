@@ -1,0 +1,7 @@
+-- Documentacion de Keys Fisicas
+CAPS LOCK 	-	VK_CAPITAL	(0x14)
+NUM LOCK  	-	VK_NUMLOCK	(0x90)
+SCROLL LOCK -	LOVK_SCROLL	(0x91)
+
+More:
+https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx

@@ -13,7 +13,7 @@ namespace _4thof4th
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
+            using (var game = new Startup())
                 game.Run();
         }
     }
