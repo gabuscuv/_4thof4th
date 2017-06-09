@@ -54,7 +54,8 @@ namespace _4thof4th.Class
 			case MenuStates.Settings: drawmenu(spriteBatch, 1); break;
 			case MenuStates.About:
                     spriteBatch.DrawString(font, "Juego creado por Gabriel Bustillo del Cuvillo\n" +
-                                        "Creado con Usagi Engine tambien de Gabriel Bustillo del Cuvillo", new Vector2((mainFrame.Width / 2) - 400, (mainFrame.Height / 2)), Color.Black); break;
+                                        "Creado con Usagi Engine tambien de Gabriel Bustillo del Cuvillo"+
+                                        "\nIlustracciones de Carlos Ruiz Santiago", new Vector2((mainFrame.Width / 2) - 400, (mainFrame.Height / 2)), Color.Black); break;
             case MenuStates.Loading:
                     spriteBatch.Draw(rect, new Vector2((mainFrame.Width / 2)+200, (mainFrame.Height / 2)+200), Color.White);
                     spriteBatch.DrawString(font, "Cargando...", new Vector2((mainFrame.Width / 2) + 200, (mainFrame.Height / 2) + 200), Color.Black);break;
