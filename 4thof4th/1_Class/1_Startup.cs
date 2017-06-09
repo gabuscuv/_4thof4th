@@ -3,18 +3,17 @@ using _4thof4th.GameStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
 
 namespace _4thof4th
 {
     /// <summary>
-    /// This is the main type for your game.
+    ///  La clase Principal.
     /// </summary>
     public class Startup : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        public static bool exit;
         public Startup()
         {
             graphics = new GraphicsDeviceManager(this)
@@ -30,11 +29,13 @@ namespace _4thof4th
         protected override void Initialize()
         {
             base.Initialize();
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+
         }
 
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
             GameStateManager.Instance.SetContent(Content);
             GameStateManager.Instance.AddScreen(new Menu(GraphicsDevice,graphics));
             //GameStateManager.Instance.AddScreen(new sceneLoader(@"maps\scenetest.wiml", GraphicsDevice));
@@ -56,7 +57,8 @@ namespace _4thof4th
           // Cerrar el Juego
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed 
                 || Keyboard.GetState().IsKeyDown(Keys.Escape))Exit();
-          // Pantalla Completa
+            if(exit) Exit();
+            // Pantalla Completa
             if (Keyboard.GetState().IsKeyDown(Keys.LeftAlt) 
                 && Keyboard.GetState().IsKeyDown(Keys.Enter)) graphics.ToggleFullScreen();
             base.Update(gameTime);

@@ -43,7 +43,7 @@ namespace _4thof4th{
             String[,] info = { { "Win32_BIOS", "Version", "Manufacturer", "ReleaseDate" },
                                { "Win32_Processor", "Name", "NumberOfCores", "MaxClockSpeed" },
                                {"Win32_ComputerSystem", "TotalPhysicalMemory", "Manufacturer", "Model" },
-                               {"Win32_PhysicalMemory","MemoryType","","" }};
+                               };
             ManagementObjectSearcher searcher;
             int s_count=0;
 			String[] s = new String[(info.GetLength(1)*info.GetLength(0))-info.GetLength(0)];
@@ -64,7 +64,9 @@ namespace _4thof4th{
 			
             return s;
         }
-
+        public String getUser() {
+            return Environment.GetEnvironmentVariable("USERNAME");
+        }
 		public String[] getRandomNameFiles(int z){
             String[] files= {""};
             switch (Environment.OSVersion.Version.Major) {

@@ -18,7 +18,6 @@ namespace _4thof4th.GameStates
             mainFrame = new Rectangle(0, 0, graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height);
         }
 
-
         public abstract void Initialize();
         public abstract void LoadContent(ContentManager content);
         public abstract void UnloadContent();

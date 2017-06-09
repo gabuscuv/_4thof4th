@@ -16,13 +16,13 @@ namespace _4thof4th.BulletStructure
             sprite = content.Load<Texture2D>("Sprites/misc/dcircule");
             sprite_bullet = content.Load<Texture2D>("Sprites/misc/scircle");
             TextureData = new Color[sprite.Width * sprite.Height];
+            sprite.GetData(TextureData);
         }
 
         public override void Update(GameTime gameTime,bool debug){
             intervale += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if ((intervale > 1.5f) && bulletsonDisplay.Count != 4)
-            {
-                    bulletsonDisplay.Add(new BulletGeneric(sprite_bullet,pos));
+            if ((intervale > 1.5f) && bulletsonDisplay.Count != 4){
+                bulletsonDisplay.Add(new BulletGeneric(sprite_bullet,pos));
                 intervale = 0f;
             }
         }

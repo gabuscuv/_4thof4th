@@ -9,8 +9,12 @@ namespace _4thof4th.Utils
 {
     class utils
     {
-        public static bool IntersectPixels(Rectangle rectangleA, Color[] dataA, Rectangle rectangleB, Color[] dataB)
-        {
+        public static bool charactervsbullets(CharacterStructure.character s,BulletStructure.BulletGeneric a) {
+         return utils.IntersectPixels(
+         new Rectangle((int)s.getPos().X, (int)s.getPos().Y, s.getBoxZone().Width, s.getBoxZone().Height), s.getTextureData(),
+         new Rectangle((int)a.getpos().X,(int)a.getpos().Y, a.getBoxZone().Width,a.getBoxZone().Height), a.getTextureData());
+        }
+        public static bool IntersectPixels(Rectangle rectangleA, Color[] dataA, Rectangle rectangleB, Color[] dataB){
             // Find the bounds of the rectangle intersection
             int top = Math.Max(rectangleA.Top, rectangleB.Top);
             int bottom = Math.Min(rectangleA.Bottom, rectangleB.Bottom);
@@ -28,13 +32,17 @@ namespace _4thof4th.Utils
                                 (y - rectangleB.Top) * rectangleB.Width];
 
                     // If both pixels are not completely transparent,
-                    if (colorA.A != 0 && colorB.A != 0)
-                    {
+                    if (colorA.A != 0 && colorB.A != 0){
                         // then an intersection has been found
                         return true;
                     }
                 }
             }
+            return false;
+        }
+        public static bool Isoutofscreen(Vector2 pos, Rectangle mainFrame) {
+            if ((pos.X > mainFrame.Width + 50 || pos.X < -400) ||
+                   (pos.Y > mainFrame.Height + 50 || pos.Y < -400))return true;
             return false;
         }
         public static Texture2D CreateRoundedRectangleTexture(GraphicsDevice graphics, int width, int height, int borderThickness, int borderRadius, int borderShadow, List<Color> backgroundColors, List<Color> borderColors, float initialShadowIntensity, float finalShadowIntensity)

@@ -11,9 +11,9 @@ public class scene{
     private String beep_path;
     private bool synth_bgm;
     private bool pcm_bgm;
+    private string text;
     public scene(bool player, String bgpath, bool FX, bool enemy, ArrayList enemylist, bool beep_bgm,
-        String beep_path, bool synth_bgm, bool pcm_bgm)
-    {
+        String beep_path, bool synth_bgm, bool pcm_bgm,string text){
         this.player = player;
         this.bgpath = bgpath;
         this.FX = FX;
@@ -22,7 +22,8 @@ public class scene{
         this.beep_bgm = beep_bgm;
         this.beep_path = beep_path;
         this.synth_bgm = synth_bgm;
-        this.pcm_bgm = pcm_bgm;
+        this.Pcm_bgm = pcm_bgm;
+        this.text = text;
     }
 
     public bool Player { get => player; set => player = value; }
@@ -34,6 +35,7 @@ public class scene{
     public string Beep_path { get => beep_path; set => beep_path = value; }
     public bool Synth_bgm { get => synth_bgm; set => synth_bgm = value; }
     public bool Pcm_bgm { get => pcm_bgm; set => pcm_bgm = value; }
+    public string Text { get => text; set => text = value; }
 }
 
 
