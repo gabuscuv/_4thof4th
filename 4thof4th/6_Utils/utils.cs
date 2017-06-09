@@ -5,10 +5,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace _4thof4th.Utils
-{
-    class utils
-    {
+namespace _4thof4th.Utils{
+    class utils{
         public static bool charactervsbullets(CharacterStructure.character s,BulletStructure.BulletGeneric a) {
          return utils.IntersectPixels(
          new Rectangle((int)s.getPos().X, (int)s.getPos().Y, s.getBoxZone().Width, s.getBoxZone().Height), s.getTextureData(),

@@ -13,7 +13,6 @@ namespace _4thof4th
     class Dialog{
         NEIO neio = new NEIO();
         Random random = new Random();
-        string[] us_comands= { "_us_kbr_en", "_us_kbr_dis", "_us_get_user", "_us_get_files" };
         private StringBuilder textonScreen;
         private string[] text;
         private Texture2D dialog = null;

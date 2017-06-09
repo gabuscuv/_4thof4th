@@ -19,12 +19,12 @@ namespace _4thof4th.Class
         private string[] tmp;
         private string[] SysInfo;
         private string[] credits;
-        Color colorbgRuntime;
-        Color colorfontRuntime;
-        SpriteFont fontRuntime;
-        SpriteFont fontdebug;
-        SpriteFont DOSfont;
-        SpriteFont kawaiifont;
+        private Color colorbgRuntime;
+        private Color colorfontRuntime;
+        private SpriteFont fontRuntime;
+        private SpriteFont fontdebug;
+        private SpriteFont DOSfont;
+        private SpriteFont kawaiifont;
         float timeout;
         float timeoutw=1f;
         float[] transparent;
